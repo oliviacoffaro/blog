@@ -1,12 +1,12 @@
 <%= form_for @post, url: '/posts' do |f| %>
   <p>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_area :title %>
   </p>
 
   <p>
     <%= f.label :content %><br>
-    <%= f.text_field :content %>
+    <%= f.text_area :content %>
   </p>
 
   <p>
