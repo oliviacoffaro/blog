@@ -1,0 +1,9 @@
+<h1>ALL THE POSTs</h1>
+
+<a href="/posts/new">Create a New Post</a>
+
+<ul>
+<% @posts.each do |post| %>
+ <li><a href="/posts/<%=post.id%>"><%= post.title %></a></li>
+<%end%>
+</ul>
