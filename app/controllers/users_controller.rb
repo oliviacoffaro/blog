@@ -6,8 +6,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    redirect_to '/'
+    if @user.save
+      redirect_to '/'
+    else
+      flash[:notice] = "Please complete all fields."
+      redirect_to '/users/new'
+    end
   end
 
 

@@ -10,15 +10,19 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to '/posts'
+    @post.user_id = current_user.id
+    if @post.save
+      redirect_to '/'
+    else
+      flash[:notice] = "Please complete all fields."
+   end
   end
 
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content)
   end
 
 end
