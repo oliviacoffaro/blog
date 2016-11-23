@@ -4,6 +4,6 @@
 
 <ul>
 <% @posts.each do |post| %>
- <li><%= post.title %></li>
+ <li><a href="/posts/<%=post.id%>"><%= post.title %></a></li>
 <%end%>
 </ul>
