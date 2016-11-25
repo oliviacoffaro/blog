@@ -10,12 +10,18 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <p id="grrrl"> Grrrl </p>
-        <!-- <a href="/">Home</a> -->
-      </div>
-    </nav>
+    <%if current_page?('/')%>
+    <%elsif current_user%>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <p id="grrrl"> Grrrl </p>
+          <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="/posts">Board</a></li>
+            <li role="presentation"><a href="/messages">Messages</a></li>
+          </ul>
+        </div>
+      </nav>
+    <%end%>
     <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name %>
