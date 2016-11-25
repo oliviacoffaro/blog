@@ -6,13 +6,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
   </head>
 
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <p id="grrrl"> Grrrl </p>
+        <!-- <a href="/">Home</a> -->
+      </div>
+    </nav>
+    <div class="container">
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name %>
-    <% end %>
-    <%= yield %>
-    
+    <%end %>
+    <%=yield %>
+  </div>
   </body>
 </html>
