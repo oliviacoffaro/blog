@@ -1,6 +1,8 @@
 class Message < ApplicationRecord
 
-  belongs_to :receiver, class_name: "User"
-  belongs_to :sender, class_name: "User"
+  belongs_to :conversation
+  belongs_to :user
+
+  validates_presence_of :body, :conversation_id, :user_id
 
 end
