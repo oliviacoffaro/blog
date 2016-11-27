@@ -21,7 +21,7 @@
 }
 
 body {
-  padding-top: 70px;
+  padding-top: 100px;
   background-color: #f5e3e7;
 
 }
@@ -29,7 +29,6 @@ body {
 #grrrl{
   font-family: 'Pacifico', cursive;
   font-size: 40px;
-  margin-left: 1px;
 }
 
 .circle{
@@ -41,4 +40,8 @@ body {
   line-height: 1000px;
   text-align:center;
   background:#000
+}
+
+.text-right{
+    text-align: right !important;
 }
