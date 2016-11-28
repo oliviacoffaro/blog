@@ -1,1 +1,17 @@
-<h1>messages</h1>
+ <% @messages.each do |message| %>
+  <% if message.content %>
+   <% user = User.find(message.user_id) %>
+   <%= user.first_name %>
+   <%= message.content%>
+ <% end %>
+<% end %>
+
+<%= form_for [@conversation, @message] do |f| %>
+ <div class=”field”>
+   <%= f.text_area :conetent %>
+ </div>
+ <%= f.text_field :user_id, value: current_user.id, type: “hidden” %>
+ <div>
+   <%= f.submit “Add Reply” %>
+ </div>
+<% end %>
