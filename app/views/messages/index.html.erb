@@ -1,8 +1,8 @@
  <% @messages.each do |message| %>
   <% if message.content %>
    <% user = User.find(message.user_id) %>
-   <%= user.first_name %>
-   <%= message.content%>
+   <strong><%= user.first_name %>:</strong>
+   <%= message.content%><br>
  <% end %>
 <% end %>
 
