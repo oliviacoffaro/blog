@@ -1,7 +1,7 @@
  <% @messages.each do |message| %>
   <% if message.content %>
    <% user = User.find(message.user_id) %>
-   <strong><%= user.first_name %>:</strong>
+   <strong><%= user.first_name.upcase %>:</strong>
    <%= message.content%><br>
  <% end %>
 <% end %>

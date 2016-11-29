@@ -7,11 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-
-
-    
-
-
+    <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
   </head>
 
   <body>
@@ -26,12 +22,14 @@
           </ul>
         </div>
       </nav>
-    <%end%>
-    <div class="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: name %>
+
+      <div class="container">
+        <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+      <%end%>
     <%end %>
-    <%=yield %>
+
+  <%=yield %>
   </div>
   </body>
 </html>
