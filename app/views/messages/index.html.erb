@@ -1,8 +1,10 @@
  <% @messages.each do |message| %>
   <% if message.content %>
+  <div class="well well-lg">
    <% user = User.find(message.user_id) %>
    <strong><%= user.first_name.upcase %>:</strong>
    <%= message.content%><br>
+ </div>
  <% end %>
 <% end %>
 
