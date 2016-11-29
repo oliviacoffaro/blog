@@ -18,15 +18,14 @@
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </p>
+
+  <div class="field">
+    <%= f.label :avatar_url %><br>
+    <%= f.file_field :avatar_url %>
+  </div>
+
   <p>
     <%= f.submit %>
   </p>
-
-
-
-<div class="field">
-  <%= f.label :avatar_url %><br>
-  <%= f.file_field :avatar_url %>
-</div>
-
+  
 <%end%>
