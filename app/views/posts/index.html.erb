@@ -2,8 +2,16 @@
 
 <a href="/posts/new">Create a New Post</a>
 
-<ul>
-<% @posts.each do |post| %>
- <li><a href="/posts/<%=post.id%>"><%= post.title %></a></li>
-<%end%>
-</ul>
+
+<div class="post-photos">
+  <% @posts.each do |post| %>
+  <a class="post-a" href="/posts/<%=post.id%>">
+    <figure>
+      <img class="post-img" src="https://images.contentful.com/g8qtv9gzg47d/1CC8CIyojm0AQs0a6OQoG4/464c86982f3f14fb14a2e3dd6ae93063/rich-moisturizer-4.jpg?fl=progressive&fm=jpg&q=80" alt="">
+      <figcaption>
+        <%= post.title %>
+      </figcaption>
+    </figure>
+  </a>
+  <%end%>
+</div>
