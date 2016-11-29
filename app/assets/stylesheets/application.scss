@@ -20,12 +20,10 @@
   margin:auto;
 }
 
-body {
+body{
   padding-top: 140px;
   background-color: #f5e3e7;
-  width: 80%;
-  margin: 30px auto;
-  font-family: sans-serif;
+  font-family: 'Hind', sans-serif;
 
 }
 
@@ -35,6 +33,7 @@ body {
 }
 
 .circle{
+  margin: auto;
   font-family: 'Pacifico', cursive;
   width:400px;
   height:400px;
@@ -94,6 +93,8 @@ figure {
 
 figcaption {
   margin-top: 15px;
+  text-align: center;
+  font-size: 25px;
 }
 
 .post-img {
@@ -103,4 +104,10 @@ figcaption {
   display: block;
   background: #ccc;
   transition: transform .2s ease-in-out;
+}
+
+.description{
+  background-color: white;
+  width: 100%;
+  padding: 200px;
 }
