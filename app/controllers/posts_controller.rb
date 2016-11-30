@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   end
 
   def set_user
-    @user = current_user)
+    @user = current_user
   end
 
   def set_s3_direct_post
