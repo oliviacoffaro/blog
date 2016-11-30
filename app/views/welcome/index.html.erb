@@ -1,9 +1,9 @@
 <div class="tophome">
 
-  <%= form_tag '/login' do %>
-  Email:  <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Log In" %>
+  <%= bootstrap_form_tag url: '/login' do |f| %>
+    <%= f.email_field :email, hide_label: true, placeholder: "Email" %>
+    <%= f.password_field :password, hide_label: true, placeholder: "Password" %>
+    <%= f.submit "Login" %>
   <% end %>
 
 

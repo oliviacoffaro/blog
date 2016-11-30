@@ -13,15 +13,17 @@
   <a href="/posts/<%=@post.id%>/edit">Edit</a>
 <%end%>
 
+<div class="input-group">
 <%= form_for @comment, url: '/comments' do |f| %>
   <p>
     <%= f.text_area :content %>
     <%= f.hidden_field :post_id, value: @post.id %>
   </p>
-  <p>
+  <p class="btn">
     <%= f.submit %>
   </p>
 <% end %>
+</div>
 
 <% if @comments %>
   <% @comments.each do |comment| %>
