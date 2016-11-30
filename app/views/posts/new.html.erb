@@ -1,6 +1,10 @@
-<%= bootstrap_form_for(@post) do |f| %>
+<div class="middle">
+<h1>New Post</h1>
+
+<%= bootstrap_form_for(@post, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
   <%= f.text_field :title, hide_label: true, placeholder: "Title"  %>
-  <%= f.text_area :title, hide_label: true, placeholder: "Body"  %>
+  <%= f.text_area :content, hide_label: true, placeholder: "Body"  %>
+  <%= f.file_field :img_url, label: "Cover Picture" %>
   <%= f.submit "Post" %>
 <% end %>
 
@@ -12,4 +16,12 @@ $(function() {
     width:  '450px'
   });
 });
+$(function() {
+  // Emoji picker
+  $('#post_content').emojiPicker({
+    height: '300px',
+    width:  '450px'
+  });
+});
 </script>
+</div>

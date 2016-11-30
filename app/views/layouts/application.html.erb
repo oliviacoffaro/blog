@@ -28,7 +28,7 @@
       fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));</script>
     <%if current_page?('/')%>
-
+    <%elsif current_page?('/') && current_user == nil%>
     <nav class="navbar navbar-inverse">
          <div class="container1">
            <div class="navbar-header homenav">
