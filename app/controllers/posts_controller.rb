@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @comment = Comment.new
-    @comments = Comment.all
+    @comments = Comment.all.reverse_order 
   end
 
   def edit
@@ -49,6 +49,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find params[:id]
+    @post.destroy
     redirect_to '/posts'
   end
 

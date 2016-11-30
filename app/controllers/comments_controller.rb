@@ -7,13 +7,15 @@ before_action :require_login
   end
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
-    if @comment.save
-    else
-      flash[:notice] = "Please complete all fields."
-   end
-  end
+      @comment = Comment.new(comment_params)
+      @comment.user_id = current_user.id
+      if @comment.save
+        render partial: 'show_jq', layout: false, locals:{comment: @comment}
+        else
+          flash[:notice] = "Please complete all fields."
+      end
+    end
+
 
   private
 

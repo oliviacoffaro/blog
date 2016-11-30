@@ -68,3 +68,21 @@ $(function() {
     });
   });
 });
+
+$(document).ready(function() {
+  $(".commentdiv").submit(function(){
+    event.preventDefault();
+    var route = '/comments/create'
+    var data = $(this).find('form').serialize()
+    $.ajax({
+      url: route,
+      method: 'post',
+      data: data
+    }).done(function(response){
+      debugger
+      $(".comment").prepend(response)
+      $(".commentdiv").empty()
+    })
+
+  })
+})
