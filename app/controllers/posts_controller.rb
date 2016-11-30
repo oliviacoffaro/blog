@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  include PostsHelper
 
   def index
     @posts = Post.all
@@ -21,6 +22,23 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @comment = Comment.new
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+
+  def update
+  @post = Post.find(params[:id])
+
+    if time_not_expired
+      if @post.update_attributes(post_params)
+        redirect_to post_path
+    else
+      flash[:notice] = "Please complete all fields."
+      end
+    end
   end
 
   private

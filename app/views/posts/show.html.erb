@@ -6,12 +6,10 @@
     <%=@post.content %>
   </div>
 </div>
-<h6>Posted by (name) at <%=@post.created_at%></h6>
-
-
-
-
-
+<h6>Posted by <%=@post.user.first_name%> at <%=@post.created_at.in_time_zone("Eastern Time (US & Canada)")%></h6>
+<% if time_not_expired%>
+  <a href="/posts/<%=@post.id%>/edit">Edit</a>
+<%end%>
 
 <% if @comments %>
   <% @comments.each do |comment| %>
