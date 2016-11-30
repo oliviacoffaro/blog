@@ -6,14 +6,26 @@
     <%=@post.content %>
   </div>
 </div>
-<h6>Posted by <%=@post.user.first_name%> at <%=@post.created_at.in_time_zone("Eastern Time (US & Canada)")%></h6>
+<h6>Posted by <%=@post.user.first_name%> at <%=@post.created_at.in_time_zone("Eastern Time (US & Canada)")%>
+  <div class="fb-share-button" data-href="http://grrrl.herokuapp.com/posts" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgrrrl.herokuapp.com%2Fposts&amp;src=sdkpreparse">Share</a></div>
+</h6>
 <% if time_not_expired%>
   <a href="/posts/<%=@post.id%>/edit">Edit</a>
 <%end%>
 
+<%= form_for @comment, url: '/comments' do |f| %>
+  <p>
+    <%= f.text_area :content %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <% if @comments %>
   <% @comments.each do |comment| %>
-    <p><%=comment%></p>
-    <h6>Posted by (name) at <%=@post.created_at%></h6>
-  <%end%>
+    <p><%=comment.content%></p>
+    <h6>Posted by <%=comment.user.first_name%> at <%=comment.created_at%> <a href="/posts/<%=@post.id%>/edit">Comment</a></h6>
+    <%end%>
 <%end%>

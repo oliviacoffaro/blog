@@ -8,9 +8,22 @@
     <%= javascript_include_tag 'application' %>
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Hind" rel="stylesheet">
+    <meta property="og:url"           content="http://grrrl.herokuapp.com" />
+  	<meta property="og:type"          content="website" />
+  	<meta property="og:title"         content="GRRRL" />
+  	<meta property="og:description"   content="Reviews of products and services that girls care about. Written by feminists, for feminists." />
+  	<meta property="og:image"         content="" />
   </head>
 
   <body>
+    <div id="fb-root"></div>
+      <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
     <%if current_page?('/')%>
     <%elsif current_user%>
       <nav class="navbar navbar-default navbar-fixed-top ">
@@ -22,11 +35,10 @@
           </ul>
         </div>
       </nav>
-
       <div class="container">
-        <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: name %>
       <%end%>
+    <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: name %>
     <%end %>
 
   <%=yield %>
