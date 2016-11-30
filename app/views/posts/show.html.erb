@@ -7,17 +7,18 @@
       <%=@post.content %>
     </div>
   </div>
+  <% if time_not_expired%>
+    <a href="/posts/<%=@post.id%>/edit">Edit</a>
+  <%end%>
   <h6>Posted by <%=@post.user.first_name%> at <%=@post.created_at.in_time_zone("Eastern Time (US & Canada)")%>
     <%if @post.user == current_user%>
-      <a href="posts#destroy">delete</a>
+    <%= link_to 'Delete', @post, :confirm => 'Are you sure?',
+                                   :method => :delete %>
     <%end%>
-  <div class="fb-share-button" data-href="http://grrrl.herokuapp.com/posts" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgrrrl.herokuapp.com%2Fposts&amp;src=sdkpreparse">Share</a></div>
+  <div class="fb-share-button" data-href="http://grrrl.herokuapp.com/posts" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fgrrrl.herokuapp.com%2Fposts&amp;src=sdkpreparse">Share</a>
+  </div>
 </h6>
-<% if time_not_expired%>
-  <a href="/posts/<%=@post.id%>/edit">Edit</a>
-<%end%>
-
-<div class="input-group">
+<div class="commentdiv input-group">
   <%= form_for @comment, url: '/comments' do |f| %>
     <p>
       <%= f.text_area :content %>
@@ -29,11 +30,11 @@
   <% end %>
 </div>
 
+<div class="comment">
 <% if @comments %>
-  <% @comments.each do |comment| %>
-    <p><%=comment.content%></p>
-    <h6>Posted by <%=comment.user.first_name%> at <%=comment.created_at%> <a href="/posts/<%=@post.id%>/edit">Comment</a></h6>
+    <% @comments.each do |comment| %>
+    <%= render partial: '/comments/show', locals: { comment: comment} %>
   <%end%>
 <%end%>
-
+</div>
 </div>

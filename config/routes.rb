@@ -11,5 +11,7 @@ Rails.application.routes.draw do
     resources :messages
   end
 
+  post '/comments/create' => 'comments#create'
+
   root 'welcome#index'
 end
