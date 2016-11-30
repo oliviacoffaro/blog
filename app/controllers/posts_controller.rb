@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all
+    @posts = Post.all.reverse_order 
   end
 
   def new
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
     @comment = Comment.new
-    @comments = Comment.all.reverse_order 
+    @comments = Comment.all.reverse_order
   end
 
   def edit
