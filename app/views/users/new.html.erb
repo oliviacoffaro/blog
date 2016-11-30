@@ -1,49 +1,14 @@
-<%= form_for(@user, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
-
-
+<div class = "register">
+<%= bootstrap_form_for(@user, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
+<%= f.text_field :first_name, hide_label: true, placeholder: "First Name" %>
+<%= f.text_field :last_name, hide_label: true, placeholder: "Last Name" %>
+<%= f.email_field :email, hide_label: true, placeholder: "Email" %>
+<%= f.password_field :password, hide_label: true, placeholder: "Password" %>
   <div class="field">
-    <%= f.label :avatar_url %><br>
-    <%= f.file_field :avatar_url %>
-  </div>
-<% end %>
-
-
-<%= bootstrap_form_for(@user) do |f| %>
-  <%= f.text_field :first_name, hide_label: true, placeholder: "First Name" %>
-  <%= f.text_field :last_name, hide_label: true, placeholder: "Last Name" %>
-  <%= f.email_field :email, hide_label: true, placeholder: "Email" %>
-  <%= f.password_field :password, hide_label: true, placeholder: "Password" %>
-  <%= f.submit "Register" %>
-<% end %>
-
-
-<%= form_for(@user, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
-
-  <p>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </p>
-
-  <p>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </p>
-
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-
-  <p>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </p>
-  <div class="field">
-  <%= f.label :avatar_url %><br>
-  <%= f.file_field :avatar_url %>
+  <%= f.file_field :avatar_url, label: "Profile Picture" %>
 </div>
-
   <p>
     <%= f.submit %>
   </p>
 <% end %>
+</div>
