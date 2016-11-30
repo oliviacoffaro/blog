@@ -17,11 +17,11 @@
  */
 
 .container{
+  padding-top: 140px;
   margin:auto;
 }
 
 body{
-  padding-top: 140px;
   background-color: #f5e3e7;
   font-family: 'Hind', sans-serif;
 
@@ -110,4 +110,21 @@ figcaption {
   background-color: white;
   width: 100%;
   padding: 200px;
+}
+
+.tophome{
+  padding-bottom: 300px;
+
+}
+
+.btn-info{
+  position: absolute;
+  background-color: black;
+  border: black;
+  z-index: 1;
+}
+
+#homepageimage{
+  width: 100%;
+  z-index: -1;
 }
