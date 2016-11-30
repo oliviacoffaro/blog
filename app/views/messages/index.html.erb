@@ -6,8 +6,8 @@
   <div class="well well-lg">
    <% user = User.find(message.user_id) %>
      <% if message.user.avatar_url %>
-  <%= image_tag(message.user.avatar_url, :width => 50, :height => 50, :alt => "glyphicon glyphicon-user")%>
-  <% end %>
+  <%=image_tag(message.user.avatar_url, :width => 50, :height => 50, :alt => "glyphicon glyphicon-user")%>
+  <%end %>
   <strong><%= user.first_name.upcase %>:</strong>
    <%= message.content%><br>
  </div>

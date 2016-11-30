@@ -7,7 +7,7 @@
   <% @posts.each do |post| %>
   <a class="post-a" href="/posts/<%=post.id%>">
     <figure>
-      <%=image_tag post.img_url, :size => "300x240", :crop => :crop%>
+      <img src="<%=post.img_url%>" alt=" ", width = 280, height= 240 />
       <figcaption>
         <%= post.title.upcase %>
       </figcaption>
