@@ -1,4 +1,5 @@
-<h3>Direct Messages</h3>
+<div class="middle">
+<h1>Direct Messages</h1>
 
 <% @conversations.each do |conversation| %>
   <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
@@ -21,3 +22,4 @@
  <% end %>
 <% end %>
 <ul>
+</div>

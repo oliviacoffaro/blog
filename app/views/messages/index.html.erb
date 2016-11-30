@@ -1,19 +1,36 @@
+<div class="middle">
+<h1>Direct Messages</h1>
+
  <% @messages.each do |message| %>
   <% if message.content %>
   <div class="well well-lg">
    <% user = User.find(message.user_id) %>
-   <strong><%= user.first_name.upcase %>:</strong>
+     <% if message.user.avatar_url %>
+  <%= image_tag(message.user.avatar_url, :width => 50, :height => 50, :alt => "glyphicon glyphicon-user")%>
+  <% end %>
+  <strong><%= user.first_name.upcase %>:</strong>
    <%= message.content%><br>
  </div>
  <% end %>
 <% end %>
 
-<%= form_for [@conversation, @message], url: {action: "create"} do |f| %>
+<%= bootstrap_form_for [@conversation, @message], url: {action: "create"} do |f| %>
  <div class=”field”>
    <%= f.text_area :content %>
  </div>
  <%= f.hidden_field :user_id, value: current_user.id %>
  <div>
-   <%= f.submit %>
+   <%= f.submit label: "Send" %>
  </div>
 <% end %>
+
+<script>
+$(function() {
+  // Emoji picker
+  $('#message_content').emojiPicker({
+    height: '300px',
+    width:  '450px'
+  });
+});
+</script>
+</div>
