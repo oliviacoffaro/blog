@@ -1,14 +1,10 @@
 <div class="tophome">
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    GO
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="/users/new">Register</a></li>
-    <li><a href="/login">Log In</a></li>
-  </ul>
-</div>
+
+  <%= bootstrap_form_tag url: '/login' do |f| %>
+    <%= f.email_field :email, hide_label: true, placeholder: "Email" %>
+    <%= f.password_field :password, hide_label: true, placeholder: "Password" %>
+    <%= f.submit "Login" %>
+  <% end %>
 
 
 <div class="circle">Grrrl</div>

@@ -1,16 +1,5 @@
-<%= form_for @post, url: '/posts' do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_area :title %>
-  </p>
-
-  <p>
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </p>
-
-
-  <p>
-    <%= f.submit %>
-  </p>
+<%= bootstrap_form_for(@post) do |f| %>
+  <%= f.text_field :title, hide_label: true, placeholder: "Title"  %>
+  <%= f.text_area :title, hide_label: true, placeholder: "Body"  %>
+  <%= f.submit "Post" %>
 <% end %>
