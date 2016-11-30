@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   include PostsHelper
 
+  before_action :require_login
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_s3_direct_post, only: [:new, :edit, :create, :update]
+
 
 
   def index
@@ -44,6 +46,10 @@ class PostsController < ApplicationController
       flash[:notice] = "Please complete all fields."
       end
     end
+  end
+
+  def destroy
+    redirect_to '/posts'
   end
 
   private
