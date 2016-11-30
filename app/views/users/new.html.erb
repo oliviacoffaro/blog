@@ -15,3 +15,35 @@
   <%= f.password_field :password, hide_label: true, placeholder: "Password" %>
   <%= f.submit "Register" %>
 <% end %>
+
+
+<%= form_for(@user, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |f| %>
+
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </p>
+  <div class="field">
+  <%= f.label :avatar_url %><br>
+  <%= f.file_field :avatar_url %>
+</div>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

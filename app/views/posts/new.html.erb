@@ -3,3 +3,13 @@
   <%= f.text_area :title, hide_label: true, placeholder: "Body"  %>
   <%= f.submit "Post" %>
 <% end %>
+
+<script>
+$(function() {
+  // Emoji picker
+  $('#post_title').emojiPicker({
+    height: '300px',
+    width:  '450px'
+  });
+});
+</script>

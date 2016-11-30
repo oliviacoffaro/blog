@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -18,7 +19,7 @@
  */
 
 .container{
-  padding-top: 140px;
+  padding-top: 70px;
   margin:auto;
 }
 
@@ -124,6 +125,11 @@ figcaption {
   background-color: black;
   border: black;
   z-index: 1;
+}
+
+.homenav{
+  background-color: #f5e3e7;
+  border: #f5e3e7;
 }
 
 #homepageimage{
