@@ -8,7 +8,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.all.reverse_order 
+    @posts = Post.all.reverse_order
   end
 
   def new
@@ -61,7 +61,7 @@ class PostsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user)
   end
 
   def set_s3_direct_post
